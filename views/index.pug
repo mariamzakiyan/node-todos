@@ -1,0 +1,24 @@
+extends common\layout.pug
+block content
+    .container-fluid
+        .panel.panel-default
+            .panel-heading TODO
+            .panel-body
+                a(href="/new") Add TODO
+            if todos.length > 0
+            table.table
+                thead
+                    tr
+                        th(scope="col") Title
+                        th(scope="col" class="center") Edit
+                        th(scope="col" class="center") Delete
+                tbody
+                    each todo in todos
+                        tr
+                            td=todo.title
+                            td.center
+                                a(href='/edit/'+todo.id)
+                                    i.fa.fa-pencil-square-o
+                            td.center
+                                button(onclick="deleteTodo("+todo.id+")")
+                                    i.fa.fa-trash

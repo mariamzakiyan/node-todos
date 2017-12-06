@@ -1,0 +1,8 @@
+extends common\layout.pug
+block content
+    .container-fluid
+        .panel.panel-default
+            .panel-heading Edit 
+                span.bold #{todo.title}
+            .panel-body
+                include form.pug
